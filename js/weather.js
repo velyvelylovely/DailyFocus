@@ -1,4 +1,5 @@
-const API_KEY = "7424f262b5ad02958b37e52625ea069c";
+// API_KEY 제거 (이제 프론트에는 키가 필요 없음)
+// const API_KEY = "api 키";
 
 const weatherText = document.querySelector("#weather #weather-text");
 
@@ -6,8 +7,8 @@ function onGeoOk(position) {
   const lat = position.coords.latitude;
   const lon = position.coords.longitude;
 
-  const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
-
+  // OpenWeather 대신, Vercel 서버리스 함수 호출
+  const url = `/api/weather?lat=${lat}&lon=${lon}`;
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
