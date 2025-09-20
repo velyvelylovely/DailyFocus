@@ -1,0 +1,260 @@
+.hidden {
+  display: none;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Roboto", "Noto Sans KR", system-ui, sans-serif;
+}
+
+/* 배경 이미지 */
+#bg-photo {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  object-position: center;
+  z-index: -1;
+  pointer-events: none;
+  filter: brightness(80%);
+}
+
+/* 상단에서 아래로 정렬하는 주 레이아웃 */
+#main {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 14px;
+  padding: 8vh 16px 4vh;
+}
+
+/* 명언 */
+#quote {
+  width: auto;
+  white-space: nowrap;
+  text-align: center;
+  color: #fff;
+  z-index: 1;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.55);
+  margin-top: 5vh;
+}
+
+#quote .quote-text {
+  display: inline;
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 1.5;
+  white-space: nowrap;            
+  position: relative;
+}
+
+#quote .quote-text::before {
+  content: "“";
+  margin-right: 6px;
+  opacity: 0.7;
+  font-size: 40px;
+  position: relative;
+  top: 5px;
+}
+
+#quote .quote-text::after {
+  content: "”";
+  margin-left: 6px;
+  opacity: 0.7;
+  font-size: 40px;
+  position: relative;
+  top: 5px;
+}
+
+#quote .quote-author {
+  display: block;
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 300;
+  opacity: 0.9;
+}
+
+/* 시계 */
+#clock {
+  color: #fff;
+  font-size: 96px;
+  font-weight: 300;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+  text-align: center;
+  z-index: 1;
+  margin-top: 5vh;
+}
+
+/* 시계 아래 날씨 스트립 */
+#weather {
+  color: #fff;
+  z-index: 1;
+  pointer-events: none;
+  text-align: center;
+  margin-top: -90px;
+}
+
+#weather #weather-text {
+  font-size: 20px;
+  font-weight: 300;
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.55);
+  letter-spacing: 0.2px;
+}
+
+/* 투두 박스 */
+#app-container {
+  width: min(520px, 90vw);
+  padding: 14px 16px;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(2px);
+  border-radius: 12px;
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  z-index: 1;
+  overflow: auto;
+}
+
+/* 내부 텍스트 기본(중복 font-family 제거: body에 이미 지정) */
+#app-container,
+#app-container input,
+#app-container button,
+#app-container li,
+#app-container span,
+#app-container h1 {
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+/* Greeting */
+#greeting {
+  margin: 6px 0 10px;
+  font-weight: 300;
+  color: #fff;
+  text-align: center;
+}
+
+/* 로그인 폼 */
+#login-form {
+  margin: 4px 0 10px;
+}
+
+#login-form input[type="text"] {
+  display: block;
+  width: 100%;
+  height: 42px;
+  padding: 10px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 10px;
+  background: rgba(0,0,0,0.35);
+  color: #fff;
+  outline: none;
+  backdrop-filter: blur(2px);
+  transition: border-color .18s ease, background .18s ease, box-shadow .18s ease;
+}
+
+#login-form input[type="text"]::placeholder {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+#login-form input[type="text"]:hover {
+  border-color: rgba(255, 255, 255, 0.45);
+  background: rgba(0,0,0,0.42);
+}
+
+#login-form input[type="text"]:focus {
+  border-color: rgba(255, 255, 255, 0.65);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.12);
+  background: rgba(0,0,0,0.46);
+}
+
+#login-form input[type="submit"] {
+  margin-top: 8px;
+  display: block;
+  width: 100%;
+  height: 40px;
+  color: #fff;
+  background: rgba(255,255,255,0.15);
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background .18s ease, border-color .18s ease;
+}
+
+#login-form input[type="submit"]:hover {
+  background: rgba(255,255,255,0.25);
+  border-color: rgba(255,255,255,0.5);
+}
+
+/* 투두 입력 */
+#todo-form {
+  width: 100%;
+  margin: 8px 0 0;
+}
+
+#todo-form input {
+  display: block;
+  width: 100%;
+  height: 38px;
+  padding: 8px 10px;
+  border: 1px solid rgba(255,255,255,0.25);
+  border-radius: 8px;
+  background: rgba(0,0,0,0.35);
+  color: #fff;
+  outline: none;
+}
+
+#todo-form input::placeholder {
+  color: rgba(255,255,255,0.7);
+}
+
+/* 투두 리스트 */
+#todo-list {
+  width: 100%;
+  list-style: none;
+  margin: 10px 0 0;
+  padding: 0;
+}
+
+#todo-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px 10px;
+  margin: 6px 0;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 8px;
+}
+
+#todo-list li span {
+  font-size: 14px;
+}
+
+#todo-list li button {
+  border: 0;
+  background: transparent;
+  color: rgba(255,255,255,0.85);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* 모바일 */
+@media (max-width: 520px) {
+  #quote { width: 92vw; }
+  #quote .quote-text { font-size: 18px; }
+  #quote .quote-author { font-size: 14px; }
+  #clock { font-size: 64px; }
+  #app-container { width: 92vw; padding: 12px 14px; }
+}
