@@ -4,7 +4,7 @@
 ---
 
 ## 🌐 Live Demo
-👉 [Daily Focus](daily-focus.vercel.app)
+👉 [Daily Focus](https://daily-focus.vercel.app/)
 
 ---
 
